@@ -1,7 +1,8 @@
 baseURL = "https://kalaylienes.github.io/hugo_blog/"
 languageCode = "tr-tr"
-title = "Hugo Blog"
-theme = "PaperMod"
+title = "IARVR 25/26"
+theme = "hugo-brewm"
+author = { name = "kalaylienes" }
 
 enableRobotsTXT = true
 
@@ -12,6 +13,11 @@ enableRobotsTXT = true
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  description = "IARVR25/26 blog"
+  HideHugoCredit = true
+  extMeta = true
 
 [outputs]
-  home = [ "HTML", "RSS", "JSON" ]
+  home = [ "HTML", "JSON" ]
+
+disableKinds = ["RSS"]
