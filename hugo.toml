@@ -1,0 +1,17 @@
+baseURL = "https://kalaylienes.github.io/hugo_blog/"
+languageCode = "tr-tr"
+title = "Hugo Blog"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
