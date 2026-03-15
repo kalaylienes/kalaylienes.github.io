@@ -51,6 +51,31 @@ body > header.pagewidth {
   text-transform: none !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  #logo #logotype__text {
+    fill: var(--fg) !important;
+    stroke: rgba(255, 255, 255, 0.32) !important;
+    stroke-width: 0.6px !important;
+    paint-order: stroke fill;
+    animation: none !important;
+  }
+
+  #logo a:hover #logotype__text,
+  #logo a:focus #logotype__text {
+    fill: var(--ac) !important;
+    stroke: rgba(255, 170, 0, 0.2) !important;
+  }
+}
+
+body[data-contrast="less"] #logo #logotype__text,
+body[data-contrast="dark"] #logo #logotype__text {
+  fill: var(--fg) !important;
+  stroke: rgba(255, 255, 255, 0.32) !important;
+  stroke-width: 0.6px !important;
+  paint-order: stroke fill;
+  animation: none !important;
+}
+
 .project-video {
   width: 100%;
   margin: 2rem 0 1.5rem;
