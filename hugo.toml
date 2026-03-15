@@ -1,5 +1,5 @@
 ## Base URL for the site
-baseURL = "https://kalaylienes.github.io/hugo_blog/"
+baseURL = "https://kalaylienes.github.io/"
 ## Site title
 title = "NS - blog"
 ## Use hugo-brewm theme

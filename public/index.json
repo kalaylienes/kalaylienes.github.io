@@ -3,180 +3,180 @@
     "nodes": [{
                 "id": "93ccbe90738ba33679ccaa5ed662708e",
                 "title": "IARVR 01 - Introduction & Motivation - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-introduction-motivation/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-introduction-motivation/",
                 "type": "post"
             },{
                 "id": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
                 "title": "IARVR 02 - Problem Statement - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-problem-statement/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-problem-statement/",
                 "type": "post"
             },{
                 "id": "11f133f6439ab0c5501d153629281c47",
                 "title": "IARVR 03 - Solution Overview - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-solution-overview/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-solution-overview/",
                 "type": "post"
             },{
                 "id": "7cadc394e486e62938f407558b893988",
                 "title": "IARVR 04 - Implementation Details - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-implementation-details/",
                 "type": "post"
             },{
                 "id": "c5878d6dbeb3fa064aa336be7337c0c5",
                 "title": "IARVR 05 - Evaluation - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-evaluation/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-evaluation/",
                 "type": "post"
             },{
                 "id": "2ad5dff88b14edb8525e45bb07c0cb19",
                 "title": "IARVR 06 - Conclusion - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-conclusion/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-conclusion/",
                 "type": "post"
             },{
                 "id": "fcb8cb6791e884d2b7222227b0bb78ea",
                 "title": "IARVR 07 - Gameplay Video - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-video/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-video/",
                 "type": "post"
             },{
                 "id": "53e02ae62bb743fe63155441ff7cc8d1",
                 "title": "IARVR 08 - AI Usage - TUDa 25/26",
-                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-ai-usage/",
+                "permalink": "https://kalaylienes.github.io/en/post/iarvr-ai-usage/",
                 "type": "post"
             },
                         {
                             "id": "categories-iarvr2526",
                             "title": "IARVR25/26",
-                            "permalink": "http://localhost:1313/hugo_blog/categories/iarvr25/26/",
+                            "permalink": "https://kalaylienes.github.io/categories/iarvr25/26/",
                             "type": "categories"
                         },
                         {
                             "id": "series-iarvr-final-report",
                             "title": "IARVR Final Report",
-                            "permalink": "http://localhost:1313/hugo_blog/series/iarvr-final-report/",
+                            "permalink": "https://kalaylienes.github.io/series/iarvr-final-report/",
                             "type": "series"
                         },
                         {
                             "id": "tags-ai",
                             "title": "Ai",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/ai/",
+                            "permalink": "https://kalaylienes.github.io/tags/ai/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-arvr",
                             "title": "Arvr",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/arvr/",
+                            "permalink": "https://kalaylienes.github.io/tags/arvr/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-chatgpt",
                             "title": "Chatgpt",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/chatgpt/",
+                            "permalink": "https://kalaylienes.github.io/tags/chatgpt/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-conclusion",
                             "title": "Conclusion",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/conclusion/",
+                            "permalink": "https://kalaylienes.github.io/tags/conclusion/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-debugging",
                             "title": "Debugging",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/debugging/",
+                            "permalink": "https://kalaylienes.github.io/tags/debugging/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-development",
                             "title": "Development",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/development/",
+                            "permalink": "https://kalaylienes.github.io/tags/development/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-evaluation",
                             "title": "Evaluation",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/evaluation/",
+                            "permalink": "https://kalaylienes.github.io/tags/evaluation/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-gameplay",
                             "title": "Gameplay",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/gameplay/",
+                            "permalink": "https://kalaylienes.github.io/tags/gameplay/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-iarvr",
                             "title": "Iarvr",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/iarvr/",
+                            "permalink": "https://kalaylienes.github.io/tags/iarvr/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-implementation",
                             "title": "Implementation",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/implementation/",
+                            "permalink": "https://kalaylienes.github.io/tags/implementation/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-interaction",
                             "title": "Interaction",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/interaction/",
+                            "permalink": "https://kalaylienes.github.io/tags/interaction/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-locomotion",
                             "title": "Locomotion",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/locomotion/",
+                            "permalink": "https://kalaylienes.github.io/tags/locomotion/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-motivation",
                             "title": "Motivation",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/motivation/",
+                            "permalink": "https://kalaylienes.github.io/tags/motivation/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-physics",
                             "title": "Physics",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/physics/",
+                            "permalink": "https://kalaylienes.github.io/tags/physics/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-playtesting",
                             "title": "Playtesting",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/playtesting/",
+                            "permalink": "https://kalaylienes.github.io/tags/playtesting/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-reflection",
                             "title": "Reflection",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/reflection/",
+                            "permalink": "https://kalaylienes.github.io/tags/reflection/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-solution",
                             "title": "Solution",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/solution/",
+                            "permalink": "https://kalaylienes.github.io/tags/solution/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-unity",
                             "title": "Unity",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/unity/",
+                            "permalink": "https://kalaylienes.github.io/tags/unity/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-video",
                             "title": "Video",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/video/",
+                            "permalink": "https://kalaylienes.github.io/tags/video/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-vr",
                             "title": "Vr",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/vr/",
+                            "permalink": "https://kalaylienes.github.io/tags/vr/",
                             "type": "tags"
                         },
                         {
                             "id": "tags-wind",
                             "title": "Wind",
-                            "permalink": "http://localhost:1313/hugo_blog/tags/wind/",
+                            "permalink": "https://kalaylienes.github.io/tags/wind/",
                             "type": "tags"
                         },
     ],
