@@ -41,7 +41,7 @@ After investigating the problem, it became clear that collider interactions in t
 For the demo version of the project, jumping was also restricted to the final straight section of the course to avoid unexpected behavior in earlier sections of the environment.
 
 {{< project-figure
-    src="iarvr/problem-statement/iarvr-problem-04-checkpoint-collider.png"
+    src="iarvr/problem-statement/iarvr-problem-04-collider-problem.png"
     alt="Scene screenshot showing checkpoint colliders that interfered with jump gesture detection."
     caption="Checkpoint structures originally used physical colliders, which caused unintended velocity spikes in the jump detection system."
 >}}
@@ -55,7 +55,7 @@ Early versions of this system suffered from unstable physics behavior. When grav
 Balancing these behaviors required several adjustments to the rigidbody configuration and interaction logic. The goal was to maintain a sense of physical behavior while still keeping the object controllable for the interaction task.
 
 {{< project-figure
-    src="iarvr/problem-statement/iarvr-problem-05-object-interaction-gravity.png"
+    src="iarvr/problem-statement/iarvr-problem-05-object-gravity-problem.png"
     alt="Early object interaction test showing unstable behavior caused by gravity and rigidbody settings."
     caption="Early object interaction tests where enabling or disabling gravity produced unstable behavior."
 >}}

@@ -23,9 +23,9 @@ The carrot is held in the player's right hand and connected to the rod with a ro
 This approach creates a locomotion system where movement emerges from the relationship between multiple objects rather than from direct player input.
 
 {{< project-figure
-    src="iarvr/solution-overview/iarvr-solution-01-carrot-rod-rope.png"
-    alt="Screenshot showing the carrot, rod, and rope setup used for indirect horse locomotion."
-    caption="Locomotion is controlled indirectly by positioning a carrot attached to the rod."
+    src="iarvr/solution-overview/iarvr-solution-01-mounted-position-tps-angle.png"
+    alt="Third-person screenshot showing the mounted player position together with the horse and carrot setup."
+    caption="The mounted third-person setup makes the indirect locomotion relationship easier to read."
 >}}
 
 ## Rope and Carrot Stabilization
@@ -40,12 +40,28 @@ Once the carrot movement became more stable, the horse locomotion system also be
 
 After the locomotion system became functional, feedback from Prof. Dr. Jan Gugenheimer suggested that the parkour section could benefit from additional difficulty. While the locomotion mechanic worked reliably, the environment itself did not challenge the player enough.
 
+This part of the wind system applies a temporary offset to the carrot target, making movement less predictable.
+
+```csharp
+float gust = Gust01();
+Vector3 dir = windDirection.sqrMagnitude > 0.0001f ? windDirection.normalized : Vector3.right;
+
+// keep the gust on the horizontal plane
+dir.y = 0f;
+if (dir.sqrMagnitude < 0.0001f) dir = Vector3.right;
+dir.Normalize();
+
+Vector3 desiredOffset = dir * (targetMaxOffset * gust * wind01);
+targetOffset = Vector3.Lerp(targetOffset, desiredOffset, 1f - Mathf.Exp(-targetSmooth * Time.deltaTime));
+carrotTarget.localPosition = targetBaseLocalPos + targetOffset;
+```
+
 To address this, wind channels were added to specific sections of the course. These zones apply directional forces that influence the carrot's position and movement. Because the horse reacts to the carrot, these disturbances indirectly affect the horse's speed and steering.
 
 The goal of the wind channels was not to fundamentally change the locomotion mechanic but to introduce moments where the player must react and adjust the carrot's position more carefully.
 
 {{< project-figure
-    src="iarvr/solution-overview/iarvr-solution-02-wind-channel.png"
+    src="iarvr/solution-overview/iarvr-solution-02-wind-tunnel-particle.png"
     alt="Screenshot of a wind channel affecting the carrot and making horse locomotion harder to control."
     caption="Wind channels introduce disturbances that slightly alter the carrot's position and make the locomotion more challenging."
 >}}
@@ -56,10 +72,26 @@ The second part of the project focuses on object interaction. Instead of allowin
 
 The player enters this mode by equipping a revolver using the left controller and shooting a Start target. Once the interaction mode is activated, the carrot is visually replaced by a hook while the rope system remains active.
 
+This snippet shows how the carrot mesh is hidden and replaced by the hook visual while keeping the rope system active.
+
+```csharp
+void Apply()
+{
+    // swap the visible mesh
+    if (layer1) layer1.SetActive(!hookMode);
+    if (layer2) layer2.SetActive(!hookMode);
+
+    if (hookVisual) hookVisual.SetActive(hookMode);
+
+    // keep the rope anchor active
+    if (carrotAttachPoint) carrotAttachPoint.gameObject.SetActive(true);
+}
+```
+
 Using the hook, the player can attach to a T-shaped object located in the interaction area. The object can then be lifted and repositioned by moving the controller.
 
 {{< project-figure
-    src="iarvr/solution-overview/iarvr-solution-03-hook-interaction.png"
+    src="iarvr/solution-overview/iarvr-solution-03-hook.png"
     alt="Interaction mode screenshot showing the hook attached to the T-shaped object."
     caption="In interaction mode, the carrot is replaced by a hook that allows indirect manipulation of the T-shaped object."
 >}}
@@ -69,7 +101,7 @@ To adjust the orientation of the object, the revolver can be used again. Shootin
 Once the object has been placed correctly, the player can shoot the Start target again, which now functions as a Done button. This exits the interaction mode and restores the locomotion setup.
 
 {{< project-figure
-    src="iarvr/solution-overview/iarvr-solution-04-object-rotation.png"
-    alt="Screenshot showing object rotation by shooting one side of the T-shaped object with the revolver."
-    caption="The orientation of the object can be adjusted by shooting it with the revolver."
+    src="iarvr/solution-overview/iarvr-solution-04-object-interaction.png"
+    alt="Screenshot showing the object interaction phase with the T-shaped piece near the target area."
+    caption="The interaction sequence combines lifting and repositioning the object inside the task area."
 >}}

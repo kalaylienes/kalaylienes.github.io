@@ -25,7 +25,7 @@ During testing, the locomotion system proved to be intuitive after a short adapt
 Several testers mentioned that the overall experience felt playful and entertaining. In particular, the added sound effects for the horse movement, revolver shots, and interaction events were perceived as very enjoyable and helped make the experience feel more responsive and engaging. These sounds were implemented using freely available sound samples.
 
 {{< project-figure
-    src="iarvr/evaluation/iarvr-evaluation-01-parkour-gameplay.png"
+    src="iarvr/evaluation/iarvr-evaluation-01-parkour-screenshot.png"
     alt="Gameplay screenshot showing the player moving through the parkour section using carrot-based horse locomotion."
     caption="Gameplay during the parkour section using the carrot-based locomotion system."
 >}}
@@ -41,7 +41,7 @@ A similar effect was occasionally reported during jump sequences, where the sudd
 The interaction task was generally perceived as fun but also somewhat challenging. Players needed a few attempts to correctly lift and align the T-shaped object using the hook system and the revolver rotation mechanic. However, once the interaction logic became clear, most players were able to complete the task successfully.
 
 {{< project-figure
-    src="iarvr/evaluation/iarvr-evaluation-02-interaction-task.png"
+    src="iarvr/evaluation/iarvr-evaluation-02-object-interaction-task.png"
     alt="Gameplay screenshot showing the player placing the T-shaped object into the matching silhouette."
     caption="The interaction task where the player places the T-shaped object into the matching silhouette."
 >}}

@@ -33,7 +33,7 @@
                 <script src="https://kalaylienes.github.io/hugo-brewm.min.js"
                     integrity="sha256-mCOAASCtB9PIhB4y1j9Ot6Jv5Mw4tTRmlh9vI3sS5bk=" crossorigin="anonymous"
                     defer></script><!-- css.html -->
-                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-bUB8MWyJEtNxO1zzmRCOdH1phoY0wrjusuU8SWqIb2g=" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-ozxjV2wvRzZPZUX604wraV8a4PrR&#43;YxvXUc&#43;51iL39g=" crossorigin="anonymous">
 
 
 
@@ -217,11 +217,19 @@
 <p>One of the first technical challenges was attaching the VR player rig to the horse model in a stable way. The initial idea was to directly parent the VR rig to the horse object so that the player would move together with the horse.</p>
 <p>However, the horse asset was part of a prefab hierarchy, and modifying the structure directly caused repeated issues in Unity. In several cases the rig position behaved unpredictably once animations were enabled.</p>
 <p>To avoid modifying the prefab structure, a simpler workaround was implemented. A new child object called <code>MountPoint</code> was added to the horse model. The VR rig then followed this point instead of being directly attached to the animated object. This provided a stable reference position for the player and avoided conflicts with the horse animation system.</p>
-<p>This approach proved to be much more reliable during gameplay.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Unity hierarchy screenshot showing the horse object, the MountPoint child, and the VR rig alignment.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-01-horse-mountpoint-hierarchy.png</code>
-    </div><figcaption>The VR rig follows a MountPoint attached to the horse to avoid conflicts with the animation system. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-01-horse-mountpoint-hierarchy.png</span></figcaption></figure>
+<p>The following code shows the essential part of the mount system, where the player rig is locked to the mount point on the horse.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">riderRig</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">riderRig</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">mountPoint</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">lockRotation</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">lockOnlyYaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">riderRig</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">mountPoint</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This approach proved to be much more reliable during gameplay.</p>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/implementation-details/iarvr-implementation-01-mount-point-hierarchy.png"
+      width="680"
+      height="231"
+      alt="Unity hierarchy screenshot showing the horse object, the MountPoint child, and the VR rig alignment."><figcaption>The VR rig follows a MountPoint attached to the horse to avoid conflicts with the animation system. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-01-mount-point-hierarchy.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -263,10 +271,21 @@
 <p>One attachment point is placed at the tip of the rod, while the second one is located on the carrot object. A line renderer is used to visually connect these two points, creating the impression of a rope.</p>
 <p>Because the carrot also influences the locomotion system, its movement had to remain readable and somewhat stable. Additional adjustments were therefore introduced to limit excessive swinging and make the system easier to control.</p>
 <p>These changes were primarily intended to improve gameplay stability rather than to simulate a physically accurate rope system.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Unity screenshot showing the rod tip, carrot attachment, and line renderer rope between them.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-02-rod-tip-carrot-rope.png</code>
-    </div><figcaption>A line renderer visually connects the rod and the carrot. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-02-rod-tip-carrot-rope.png</span></figcaption></figure>
+<p>This snippet illustrates how the rope system continuously measures the distance between the rod tip and the carrot attachment point.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">attachPos</span> <span class="p">=</span> <span class="n">GetAttachWorldPos</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">fromTip</span> <span class="p">=</span> <span class="n">attachPos</span> <span class="p">-</span> <span class="n">rodPosCached</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">dist</span> <span class="p">=</span> <span class="n">fromTip</span><span class="p">.</span><span class="n">magnitude</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">dist</span> <span class="p">&lt;</span> <span class="m">0.0001f</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">dir</span> <span class="p">=</span> <span class="n">fromTip</span> <span class="p">/</span> <span class="n">dist</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">freeLen</span> <span class="p">=</span> <span class="n">restLength</span> <span class="p">+</span> <span class="n">slackExtra</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">hardMax</span> <span class="p">=</span> <span class="n">freeLen</span> <span class="p">+</span> <span class="n">maxExtraStretch</span><span class="p">;</span>
+</span></span></code></pre></div><figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/implementation-details/iarvr-implementation-02-mounted-position.png"
+      width="1266"
+      height="807"
+      alt="Mounted gameplay setup showing the player rig positioned on the horse during traversal."><figcaption>The mounted position is stabilized so the rider stays aligned with the horse during movement. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-02-mounted-position.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -305,18 +324,52 @@
 
 <h2 id="jump-detection-implementation">Jump Detection Implementation</h2>
 <p>The jumping mechanic was implemented by detecting a downward swing motion of the left controller. The system calculates the movement velocity of the controller and triggers a jump when the downward velocity exceeds a certain threshold.</p>
-<p>While this method worked well in controlled tests, it initially produced unintended jumps when the player interacted with large environmental colliders. Objects such as checkpoints or ground transitions could cause short spikes in controller velocity.</p>
+<p>The jump gesture was implemented by checking the downward velocity and travel distance of the left hand.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">pos</span> <span class="p">=</span> <span class="n">leftHand</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">vel</span> <span class="p">=</span> <span class="p">(</span><span class="n">pos</span> <span class="p">-</span> <span class="n">prevPos</span><span class="p">)</span> <span class="p">/</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">,</span> <span class="m">0.0001f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">downVel</span> <span class="p">=</span> <span class="p">-</span><span class="n">vel</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">downDist</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="n">prevPos</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Time</span><span class="p">.</span><span class="n">time</span> <span class="p">-</span> <span class="n">lastJumpTime</span> <span class="p">&gt;=</span> <span class="n">jumpCooldown</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">downVel</span> <span class="p">&gt;=</span> <span class="n">minDownVelocity</span> <span class="p">&amp;&amp;</span> <span class="n">downDist</span> <span class="p">&gt;=</span> <span class="n">minDownDistance</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">horse</span><span class="p">.</span><span class="n">RequestJump</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lastJumpTime</span> <span class="p">=</span> <span class="n">Time</span><span class="p">.</span><span class="n">time</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>While this method worked well in controlled tests, it initially produced unintended jumps when the player interacted with large environmental colliders. Objects such as checkpoints or ground transitions could cause short spikes in controller velocity.</p>
 <p>To reduce these unwanted triggers, several checkpoint colliders were converted into trigger volumes so they would no longer influence the physics interactions of the player rig.</p>
 <p>For the demo version of the project, the jumping mechanic was also restricted to the final straight section of the parkour course. This ensured that the locomotion system remained stable during the main traversal sections.</p>
-<h2 id="hook-interaction-system">Hook Interaction System</h2>
+<p>To keep the demo stable, jumping was restricted to a dedicated area using a collider-based zone check.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">insideZone</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">requireInsideZone</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">allowedJumpZone</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">insideZone</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">insideZone</span> <span class="p">=</span> <span class="n">allowedJumpZone</span><span class="p">.</span><span class="n">bounds</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">horse</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="hook-interaction-system">Hook Interaction System</h2>
 <p>The object interaction phase introduces a hook system that allows the player to manipulate a T-shaped object indirectly.</p>
 <p>Instead of grabbing the object directly with the VR controller, the player approaches the object with the hook attached to the rod. When the hook touches the object and the trigger is pressed, the system creates a connection between the hook and the object using physics components.</p>
-<p>The object can then be lifted and moved through the rope system.</p>
+<p>The hook attaches to the object by creating a configurable joint at the contact point.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">joint</span> <span class="p">=</span> <span class="n">targetRb</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">ConfigurableJoint</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">connectedBody</span> <span class="p">=</span> <span class="n">hookRb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">autoConfigureConnectedAnchor</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">anchor</span> <span class="p">=</span> <span class="n">targetRb</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">InverseTransformPoint</span><span class="p">(</span><span class="n">contactWorld</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">connectedAnchor</span> <span class="p">=</span> <span class="n">hookRb</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">InverseTransformPoint</span><span class="p">(</span><span class="n">hookTipTrigger</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">xMotion</span> <span class="p">=</span> <span class="n">ConfigurableJointMotion</span><span class="p">.</span><span class="n">Locked</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">yMotion</span> <span class="p">=</span> <span class="n">ConfigurableJointMotion</span><span class="p">.</span><span class="n">Locked</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">joint</span><span class="p">.</span><span class="n">zMotion</span> <span class="p">=</span> <span class="n">ConfigurableJointMotion</span><span class="p">.</span><span class="n">Locked</span><span class="p">;</span>
+</span></span></code></pre></div><p>The object can then be lifted and moved through the rope system.</p>
 <p>This approach allows the object to react to physics while still remaining controllable during the interaction task.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Gameplay or Unity screenshot showing the hook attaching to the T-shaped object.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-03-hook-attaching-object.png</code>
-    </div><figcaption>The hook connects to the object through a physics-based attachment. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-03-hook-attaching-object.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/implementation-details/iarvr-implementation-03-hook.png"
+      width="2550"
+      height="1413"
+      alt="Gameplay or Unity screenshot showing the hook attaching to the T-shaped object."><figcaption>The hook connects to the object through a physics-based attachment. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-03-hook.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -356,11 +409,52 @@
 <h2 id="object-rotation-through-shooting">Object Rotation Through Shooting</h2>
 <p>To adjust the orientation of the T-shaped object, a shooting mechanic was introduced using the revolver.</p>
 <p>When the player fires the revolver, a raycast is emitted from the weapon. If the ray hits the interaction object, the system determines which side of the object was hit. Based on this information, the object rotates by a small predefined angle.</p>
-<p>This step-based rotation method provides a simple way for the player to gradually align the object with the target silhouette.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Screenshot showing the revolver aiming at the interaction object to rotate it step by step.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-04-revolver-shooting-object.png</code>
-    </div><figcaption>The revolver uses raycasting to rotate the interaction object step by step. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-04-revolver-shooting-object.png</span></figcaption></figure>
+<p>The revolver uses a raycast and a short tracer line to visualize shooting and detect hits.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Ray</span> <span class="n">ray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Ray</span><span class="p">(</span><span class="n">muzzle</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">muzzle</span><span class="p">.</span><span class="n">forward</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">hitSomething</span> <span class="p">=</span> <span class="n">Physics</span><span class="p">.</span><span class="n">Raycast</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="k">out</span> <span class="n">RaycastHit</span> <span class="n">hit</span><span class="p">,</span> <span class="n">range</span><span class="p">,</span> <span class="n">hitMask</span><span class="p">,</span> <span class="n">QueryTriggerInteraction</span><span class="p">.</span><span class="n">Collide</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">endPoint</span> <span class="p">=</span> <span class="n">hitSomething</span> <span class="p">?</span> <span class="n">hit</span><span class="p">.</span><span class="n">point</span> <span class="p">:</span> <span class="p">(</span><span class="n">muzzle</span><span class="p">.</span><span class="n">position</span> <span class="p">+</span> <span class="n">muzzle</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="n">range</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">EnsureTracer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">DrawTracer</span><span class="p">(</span><span class="n">muzzle</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">endPoint</span><span class="p">);</span>
+</span></span></code></pre></div><p>This part handles interaction targets and also forwards hit information to the object-rotation system.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">hitSomething</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">target</span> <span class="p">=</span> <span class="n">hit</span><span class="p">.</span><span class="n">collider</span><span class="p">.</span><span class="n">GetComponentInParent</span><span class="p">&lt;</span><span class="n">ShootTarget</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">target</span><span class="p">.</span><span class="n">Shot</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">rot</span> <span class="p">=</span> <span class="n">hit</span><span class="p">.</span><span class="n">collider</span><span class="p">.</span><span class="n">GetComponentInParent</span><span class="p">&lt;</span><span class="n">ObjectTRotateOnShot</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rot</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rot</span><span class="p">.</span><span class="n">RotateFromHit</span><span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="n">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This step-based rotation method provides a simple way for the player to gradually align the object with the target silhouette.</p>
+<p>The object determines whether the left or right side was hit and updates its target rotation accordingly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">localHit</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">InverseTransformPoint</span><span class="p">(</span><span class="n">hitPointWorld</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">dir</span> <span class="p">=</span> <span class="p">(</span><span class="n">localHit</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;=</span> <span class="m">0f</span><span class="p">)</span> <span class="p">?</span> <span class="m">1f</span> <span class="p">:</span> <span class="p">-</span><span class="m">1f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">desiredYaw</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Repeat</span><span class="p">(</span><span class="n">desiredYaw</span> <span class="p">+</span> <span class="n">dir</span> <span class="p">*</span> <span class="n">stepDegrees</span><span class="p">,</span> <span class="m">360f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">hasTarget</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span></code></pre></div><p>The actual rotation is applied gradually so the object turns in controlled steps instead of spinning continuously.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">current</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">eulerAngles</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">next</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">MoveTowardsAngle</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">desiredYaw</span><span class="p">,</span> <span class="n">maxYawSpeed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">Euler</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="n">next</span><span class="p">,</span> <span class="m">0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">DeltaAngle</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">desiredYaw</span><span class="p">))</span> <span class="p">&lt;</span> <span class="m">0.1f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">Euler</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="n">desiredYaw</span><span class="p">,</span> <span class="m">0f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hasTarget</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/implementation-details/iarvr-implementation-04-object-interaction.png"
+      width="2543"
+      height="1355"
+      alt="Screenshot showing the object interaction area during manipulation and alignment."><figcaption>The object interaction phase keeps the physics-driven object controllable inside the task space. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-04-object-interaction.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -400,7 +494,18 @@
 <h2 id="stabilizing-the-object-after-release">Stabilizing the Object After Release</h2>
 <p>Another challenge appeared when releasing the object from the hook. If the object remained fully controlled by physics, it could immediately fall or rotate unpredictably.</p>
 <p>To solve this problem, the object&rsquo;s physics behavior is adjusted once it is released. The rigidbody velocities are reset and gravity can be disabled so that the object remains in the position where it was placed.</p>
-<p>This allows the player to carefully position the object without it drifting away after being released.</p>
+<p>When the object is released, its motion is reset and physics is partially disabled so it stays in place.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">freezeOnRelease</span> <span class="p">&amp;&amp;</span> <span class="n">latchedRb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">latchedRb</span><span class="p">.</span><span class="n">linearVelocity</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">latchedRb</span><span class="p">.</span><span class="n">angularVelocity</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">latchedRb</span><span class="p">.</span><span class="n">useGravity</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">freezeUseKinematic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">latchedRb</span><span class="p">.</span><span class="n">isKinematic</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This allows the player to carefully position the object without it drifting away after being released.</p>
 
         </section>
             

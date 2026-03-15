@@ -22,7 +22,7 @@ This is my personal blog where I *plan* to write about whatever I’m into…
 - currently in the **thesis phase** of  M.Sc. in **Informatics** at **TU Darmstadt**.
 
 ### What I do when work or academia lets me breathe
-When I’m not busy with thesis life or work stuff, you’ll probably find me:
+When I’m not busy with university or work stuff, you’ll probably find me:
 - trying (mostly failing) to improve playing metal stuff on **electric guitar**
 - messing around with **music production** in tiny steps
 - building random things with a **3D printer**

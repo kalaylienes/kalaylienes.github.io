@@ -31,3 +31,5 @@ During development there were several cases where minor implementation issues or
 Based on this experience, AI proved to be particularly effective as a tool for assisting with implementation and code generation, while complex system debugging still required careful manual investigation.
 
 Nevertheless, using AI provided a substantial productivity benefit and helped accelerate parts of the development process.
+
+For reference, the full Unity project is published here: [Carrot-on-a-stick_IARVR2526](https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526).

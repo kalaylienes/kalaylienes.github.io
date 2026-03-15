@@ -33,7 +33,7 @@
                 <script src="https://kalaylienes.github.io/hugo-brewm.min.js"
                     integrity="sha256-mCOAASCtB9PIhB4y1j9Ot6Jv5Mw4tTRmlh9vI3sS5bk=" crossorigin="anonymous"
                     defer></script><!-- css.html -->
-                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-bUB8MWyJEtNxO1zzmRCOdH1phoY0wrjusuU8SWqIb2g=" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-ozxjV2wvRzZPZUX604wraV8a4PrR&#43;YxvXUc&#43;51iL39g=" crossorigin="anonymous">
 
 
 
@@ -241,10 +241,11 @@
 <p>These spikes often occurred when the player interacted with large objects in the environment, such as checkpoint structures or transitions between different surfaces. In some cases the system interpreted these small collisions as a jump gesture.</p>
 <p>After investigating the problem, it became clear that collider interactions in the environment were affecting the controller velocity readings. Converting these colliders into trigger volumes helped reduce the problem significantly.</p>
 <p>For the demo version of the project, jumping was also restricted to the final straight section of the course to avoid unexpected behavior in earlier sections of the environment.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Scene screenshot showing checkpoint colliders that interfered with jump gesture detection.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/problem-statement/iarvr-problem-04-checkpoint-collider.png</code>
-    </div><figcaption>Checkpoint structures originally used physical colliders, which caused unintended velocity spikes in the jump detection system. <span class="project-figure__filename">File: iarvr/problem-statement/iarvr-problem-04-checkpoint-collider.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/problem-statement/iarvr-problem-04-collider-problem.png"
+      width="1133"
+      height="774"
+      alt="Scene screenshot showing checkpoint colliders that interfered with jump gesture detection."><figcaption>Checkpoint structures originally used physical colliders, which caused unintended velocity spikes in the jump detection system. <span class="project-figure__filename">File: iarvr/problem-statement/iarvr-problem-04-collider-problem.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -285,10 +286,11 @@
 <p>The object interaction phase introduced a different set of challenges. The player needs to manipulate a T-shaped object using a hook attached to the rod. Instead of grabbing the object directly, the player attaches the hook to the object and lifts it through the rope system.</p>
 <p>Early versions of this system suffered from unstable physics behavior. When gravity was disabled, the object often behaved unrealistically and could easily drift away or move unpredictably. When gravity was enabled, the opposite problem occurred: the object could fall too quickly or move outside the intended interaction space.</p>
 <p>Balancing these behaviors required several adjustments to the rigidbody configuration and interaction logic. The goal was to maintain a sense of physical behavior while still keeping the object controllable for the interaction task.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Early object interaction test showing unstable behavior caused by gravity and rigidbody settings.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/problem-statement/iarvr-problem-05-object-interaction-gravity.png</code>
-    </div><figcaption>Early object interaction tests where enabling or disabling gravity produced unstable behavior. <span class="project-figure__filename">File: iarvr/problem-statement/iarvr-problem-05-object-interaction-gravity.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/problem-statement/iarvr-problem-05-object-gravity-problem.png"
+      width="1132"
+      height="766"
+      alt="Early object interaction test showing unstable behavior caused by gravity and rigidbody settings."><figcaption>Early object interaction tests where enabling or disabling gravity produced unstable behavior. <span class="project-figure__filename">File: iarvr/problem-statement/iarvr-problem-05-object-gravity-problem.png</span></figcaption></figure>
 
 <style>
   .project-figure {

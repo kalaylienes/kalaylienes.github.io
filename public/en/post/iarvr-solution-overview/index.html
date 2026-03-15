@@ -33,7 +33,7 @@
                 <script src="https://kalaylienes.github.io/hugo-brewm.min.js"
                     integrity="sha256-mCOAASCtB9PIhB4y1j9Ot6Jv5Mw4tTRmlh9vI3sS5bk=" crossorigin="anonymous"
                     defer></script><!-- css.html -->
-                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-bUB8MWyJEtNxO1zzmRCOdH1phoY0wrjusuU8SWqIb2g=" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-ozxjV2wvRzZPZUX604wraV8a4PrR&#43;YxvXUc&#43;51iL39g=" crossorigin="anonymous">
 
 
 
@@ -217,10 +217,11 @@
 <p>The locomotion system is based on an indirect control mechanism inspired by the carrot on a stick metaphor. Instead of directly controlling the horse through joystick input, the player influences the horse&rsquo;s movement by positioning a carrot attached to a fishing rod.</p>
 <p>The carrot is held in the player&rsquo;s right hand and connected to the rod with a rope-like visual element. The horse continuously reacts to the carrot&rsquo;s position and distance. When the carrot is moved further away from the horse, the horse begins to move forward. Steering is achieved by positioning the carrot to the left or right of the horse&rsquo;s forward direction.</p>
 <p>This approach creates a locomotion system where movement emerges from the relationship between multiple objects rather than from direct player input.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Screenshot showing the carrot, rod, and rope setup used for indirect horse locomotion.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/solution-overview/iarvr-solution-01-carrot-rod-rope.png</code>
-    </div><figcaption>Locomotion is controlled indirectly by positioning a carrot attached to the rod. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-01-carrot-rod-rope.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/solution-overview/iarvr-solution-01-mounted-position-tps-angle.png"
+      width="1266"
+      height="807"
+      alt="Third-person screenshot showing the mounted player position together with the horse and carrot setup."><figcaption>The mounted third-person setup makes the indirect locomotion relationship easier to read. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-01-mounted-position-tps-angle.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -263,12 +264,25 @@
 <p>Once the carrot movement became more stable, the horse locomotion system also became significantly easier to control.</p>
 <h2 id="wind-channels-for-additional-challenge">Wind Channels for Additional Challenge</h2>
 <p>After the locomotion system became functional, feedback from Prof. Dr. Jan Gugenheimer suggested that the parkour section could benefit from additional difficulty. While the locomotion mechanic worked reliably, the environment itself did not challenge the player enough.</p>
-<p>To address this, wind channels were added to specific sections of the course. These zones apply directional forces that influence the carrot&rsquo;s position and movement. Because the horse reacts to the carrot, these disturbances indirectly affect the horse&rsquo;s speed and steering.</p>
+<p>This part of the wind system applies a temporary offset to the carrot target, making movement less predictable.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">gust</span> <span class="p">=</span> <span class="n">Gust01</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">dir</span> <span class="p">=</span> <span class="n">windDirection</span><span class="p">.</span><span class="n">sqrMagnitude</span> <span class="p">&gt;</span> <span class="m">0.0001f</span> <span class="p">?</span> <span class="n">windDirection</span><span class="p">.</span><span class="n">normalized</span> <span class="p">:</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// keep the gust on the horizontal plane</span>
+</span></span><span class="line"><span class="cl"><span class="n">dir</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">dir</span><span class="p">.</span><span class="n">sqrMagnitude</span> <span class="p">&lt;</span> <span class="m">0.0001f</span><span class="p">)</span> <span class="n">dir</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dir</span><span class="p">.</span><span class="n">Normalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Vector3</span> <span class="n">desiredOffset</span> <span class="p">=</span> <span class="n">dir</span> <span class="p">*</span> <span class="p">(</span><span class="n">targetMaxOffset</span> <span class="p">*</span> <span class="n">gust</span> <span class="p">*</span> <span class="n">wind01</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">targetOffset</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">targetOffset</span><span class="p">,</span> <span class="n">desiredOffset</span><span class="p">,</span> <span class="m">1f</span> <span class="p">-</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Exp</span><span class="p">(-</span><span class="n">targetSmooth</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">carrotTarget</span><span class="p">.</span><span class="n">localPosition</span> <span class="p">=</span> <span class="n">targetBaseLocalPos</span> <span class="p">+</span> <span class="n">targetOffset</span><span class="p">;</span>
+</span></span></code></pre></div><p>To address this, wind channels were added to specific sections of the course. These zones apply directional forces that influence the carrot&rsquo;s position and movement. Because the horse reacts to the carrot, these disturbances indirectly affect the horse&rsquo;s speed and steering.</p>
 <p>The goal of the wind channels was not to fundamentally change the locomotion mechanic but to introduce moments where the player must react and adjust the carrot&rsquo;s position more carefully.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Screenshot of a wind channel affecting the carrot and making horse locomotion harder to control.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/solution-overview/iarvr-solution-02-wind-channel.png</code>
-    </div><figcaption>Wind channels introduce disturbances that slightly alter the carrot&#39;s position and make the locomotion more challenging. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-02-wind-channel.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/solution-overview/iarvr-solution-02-wind-tunnel-particle.png"
+      width="1263"
+      height="798"
+      alt="Screenshot of a wind channel affecting the carrot and making horse locomotion harder to control."><figcaption>Wind channels introduce disturbances that slightly alter the carrot&#39;s position and make the locomotion more challenging. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-02-wind-tunnel-particle.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -308,11 +322,24 @@
 <h2 id="interaction-mode">Interaction Mode</h2>
 <p>The second part of the project focuses on object interaction. Instead of allowing the player to directly grab objects, the interaction system introduces a separate interaction mode.</p>
 <p>The player enters this mode by equipping a revolver using the left controller and shooting a Start target. Once the interaction mode is activated, the carrot is visually replaced by a hook while the rope system remains active.</p>
-<p>Using the hook, the player can attach to a T-shaped object located in the interaction area. The object can then be lifted and repositioned by moving the controller.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Interaction mode screenshot showing the hook attached to the T-shaped object.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/solution-overview/iarvr-solution-03-hook-interaction.png</code>
-    </div><figcaption>In interaction mode, the carrot is replaced by a hook that allows indirect manipulation of the T-shaped object. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-03-hook-interaction.png</span></figcaption></figure>
+<p>This snippet shows how the carrot mesh is hidden and replaced by the hook visual while keeping the rope system active.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">void</span> <span class="n">Apply</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// swap the visible mesh</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">layer1</span><span class="p">)</span> <span class="n">layer1</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(!</span><span class="n">hookMode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">layer2</span><span class="p">)</span> <span class="n">layer2</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(!</span><span class="n">hookMode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">hookVisual</span><span class="p">)</span> <span class="n">hookVisual</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="n">hookMode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// keep the rope anchor active</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">carrotAttachPoint</span><span class="p">)</span> <span class="n">carrotAttachPoint</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Using the hook, the player can attach to a T-shaped object located in the interaction area. The object can then be lifted and repositioned by moving the controller.</p>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/solution-overview/iarvr-solution-03-hook.png"
+      width="2550"
+      height="1413"
+      alt="Interaction mode screenshot showing the hook attached to the T-shaped object."><figcaption>In interaction mode, the carrot is replaced by a hook that allows indirect manipulation of the T-shaped object. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-03-hook.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -351,10 +378,11 @@
 
 <p>To adjust the orientation of the object, the revolver can be used again. Shooting one side of the object rotates it step by step, allowing the player to align it with the target silhouette.</p>
 <p>Once the object has been placed correctly, the player can shoot the Start target again, which now functions as a Done button. This exits the interaction mode and restores the locomotion setup.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Screenshot showing object rotation by shooting one side of the T-shaped object with the revolver.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/solution-overview/iarvr-solution-04-object-rotation.png</code>
-    </div><figcaption>The orientation of the object can be adjusted by shooting it with the revolver. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-04-object-rotation.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/solution-overview/iarvr-solution-04-object-interaction.png"
+      width="2543"
+      height="1355"
+      alt="Screenshot showing the object interaction phase with the T-shaped piece near the target area."><figcaption>The interaction sequence combines lifting and repositioning the object inside the task area. <span class="project-figure__filename">File: iarvr/solution-overview/iarvr-solution-04-object-interaction.png</span></figcaption></figure>
 
 <style>
   .project-figure {

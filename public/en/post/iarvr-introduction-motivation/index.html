@@ -33,7 +33,7 @@
                 <script src="https://kalaylienes.github.io/hugo-brewm.min.js"
                     integrity="sha256-mCOAASCtB9PIhB4y1j9Ot6Jv5Mw4tTRmlh9vI3sS5bk=" crossorigin="anonymous"
                     defer></script><!-- css.html -->
-                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-bUB8MWyJEtNxO1zzmRCOdH1phoY0wrjusuU8SWqIb2g=" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://kalaylienes.github.io/hugo-brewm.min.css" integrity="sha256-ozxjV2wvRzZPZUX604wraV8a4PrR&#43;YxvXUc&#43;51iL39g=" crossorigin="anonymous">
 
 
 
@@ -222,10 +222,11 @@
 <p>This project was developed as part of the Introduction to AR/VR course. The goal of the assignment was to design and implement a locomotion technique and an interaction technique in a virtual reality environment.</p>
 <p>Instead of implementing a conventional locomotion system based on joystick input, the idea was to explore a more indirect interaction style where the player influences movement through another object. The result is a locomotion system inspired by the well-known &ldquo;carrot on a stick&rdquo; metaphor.</p>
 <p>In this system, the player rides a horse and controls its movement indirectly by positioning a carrot attached to a fishing rod. The horse reacts to the carrot&rsquo;s position and distance, which determines both the direction and speed of movement. This approach allowed the locomotion mechanic to feel more playful and slightly less predictable compared to traditional direct control methods.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Early prototype scene showing the horse, carrot, and rod system.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/introduction-motivation/iarvr-introduction-01-unity-scene.png</code>
-    </div><figcaption>Early prototype of the carrot-based locomotion system in Unity. <span class="project-figure__filename">File: iarvr/introduction-motivation/iarvr-introduction-01-unity-scene.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/introduction-motivation/iarvr-introduction-01-unity-scene.png"
+      width="2556"
+      height="1394"
+      alt="Early prototype scene showing the horse, carrot, and rod system."><figcaption>Early prototype of the carrot-based locomotion system in Unity. <span class="project-figure__filename">File: iarvr/introduction-motivation/iarvr-introduction-01-unity-scene.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -264,13 +265,15 @@
 
 <p>The second part of the project focuses on object interaction. Instead of using the standard VR grabbing technique, the interaction system introduces an indirect manipulation method using a hook and a revolver. The player first enters the interaction mode by shooting a target. In this mode the carrot is replaced by a hook, which can be used to lift a T-shaped object. The orientation of the object can then be adjusted by shooting it with the revolver.</p>
 <p>Overall, the project combines a physics-based locomotion mechanic with a simple but unconventional object interaction system.</p>
+<p>The Unity project repository is available here: <a href="https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526" target="_blank" rel="external noopener noreferrer nofollow">Carrot-on-a-stick_IARVR2526</a>.</p>
 <h2 id="design-motivation">Design Motivation</h2>
 <p>A key motivation behind the locomotion system was to avoid the typical VR movement approach where the player directly controls movement using a joystick. While such systems are practical, they often feel detached from the virtual world.</p>
 <p>The carrot on a stick metaphor offered a simple alternative. Instead of directly controlling the horse, the player influences the horse&rsquo;s behavior by guiding the carrot in front of it. The horse then reacts to this stimulus, creating a form of indirect locomotion.</p>
-<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Gameplay view showing the player guiding the carrot in front of the horse.">
-      <strong>Placeholder image</strong>
-      <code>assets/project-media/iarvr/introduction-motivation/iarvr-introduction-02-gameplay-shot.png</code>
-    </div><figcaption>The player indirectly controls movement by guiding the carrot in front of the horse. <span class="project-figure__filename">File: iarvr/introduction-motivation/iarvr-introduction-02-gameplay-shot.png</span></figcaption></figure>
+<figure class="project-figure"><img
+      src="https://kalaylienes.github.io/project-media/iarvr/introduction-motivation/iarvr-introduction-02-start-position.png"
+      width="1270"
+      height="804"
+      alt="Start area screenshot showing the player mounted on the horse at the beginning of the course."><figcaption>The start area of the project, where the player begins the horse-based locomotion sequence. <span class="project-figure__filename">File: iarvr/introduction-motivation/iarvr-introduction-02-start-position.png</span></figcaption></figure>
 
 <style>
   .project-figure {
@@ -309,6 +312,11 @@
 
 <p>This idea allowed the locomotion mechanic to emerge from the relationship between multiple objects: the horse, the carrot, the rod, and the rope connecting them. The goal was not to create a perfectly realistic simulation but rather a playful interaction that still feels understandable and controllable.</p>
 <p>During development, several adjustments were made to stabilize the system and make it usable in practice. Small gameplay additions such as wind channels were also introduced later to make the locomotion experience slightly more challenging.</p>
+<h2 id="project-overview-slides">Project Overview Slides</h2>
+<p>The slide deck prepared for the presentation can be reviewed below for a compact project overview.</p>
+<div class="project-embed">
+  <iframe src="https://gamma.app/embed/guy67s2ni7f50pv" allow="fullscreen" title="IARVR 2025/26"></iframe>
+</div>
 
         </section>
             
