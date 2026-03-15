@@ -120,6 +120,12 @@ body > header.pagewidth {
   }
 }
 
+.slide__content p.noindent {
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 #cookie-banner > div {
     display: flex;
     align-items: center;
