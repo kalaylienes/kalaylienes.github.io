@@ -1,5 +1,5 @@
 +++
-title = "IARVR 02 - Problem Statement - TUDa 25/26"
+title = "IVAR 02 - Problem Statement - TUDa 25/26"
 date = "2026-03-14"
 type = "post"
 draft = false

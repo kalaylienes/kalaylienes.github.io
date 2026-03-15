@@ -1,10 +1,10 @@
 +++
-title = "IARVR 07 - Gameplay Video - TUDa 25/26"
+title = "IVAR 07 - Gameplay Video - TUDa 25/26"
 date = "2026-03-15"
 type = "post"
 draft = false
 author = ["kalaylienes"]
-description = "Gameplay video for the IARVR project, showing the horse locomotion and interaction sequence."
+description = "Gameplay video for the IVAR project, showing the horse locomotion and interaction sequence."
 categories = ["IARVR25/26"]
 tags = ["iarvr", "arvr", "vr", "video", "gameplay", "locomotion", "interaction"]
 series = ["IARVR Final Report"]
@@ -18,6 +18,6 @@ This page contains the gameplay video for the project. It shows the horse-based 
 
 {{< vimeo-embed
     id="1162824272"
-    title="IARVR gameplay video"
+    title="IVAR gameplay video"
     caption="Gameplay video showing the carrot-based horse locomotion and the hook-based interaction task."
 >}}

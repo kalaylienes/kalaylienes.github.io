@@ -2,54 +2,54 @@
 {
     "nodes": [{
                 "id": "93ccbe90738ba33679ccaa5ed662708e",
-                "title": "IARVR 01 - Introduction & Motivation - TUDa 25/26",
+                "title": "IVAR 01 - Introduction & Motivation - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-introduction-motivation/",
                 "type": "post"
             },{
                 "id": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
-                "title": "IARVR 02 - Problem Statement - TUDa 25/26",
+                "title": "IVAR 02 - Problem Statement - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-problem-statement/",
                 "type": "post"
             },{
                 "id": "11f133f6439ab0c5501d153629281c47",
-                "title": "IARVR 03 - Solution Overview - TUDa 25/26",
+                "title": "IVAR 03 - Solution Overview - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-solution-overview/",
                 "type": "post"
             },{
                 "id": "7cadc394e486e62938f407558b893988",
-                "title": "IARVR 04 - Implementation Details - TUDa 25/26",
+                "title": "IVAR 04 - Implementation Details - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-implementation-details/",
                 "type": "post"
             },{
                 "id": "c5878d6dbeb3fa064aa336be7337c0c5",
-                "title": "IARVR 05 - Evaluation - TUDa 25/26",
+                "title": "IVAR 05 - Evaluation - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-evaluation/",
                 "type": "post"
             },{
                 "id": "2ad5dff88b14edb8525e45bb07c0cb19",
-                "title": "IARVR 06 - Conclusion - TUDa 25/26",
+                "title": "IVAR 06 - Conclusion - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-conclusion/",
                 "type": "post"
             },{
                 "id": "fcb8cb6791e884d2b7222227b0bb78ea",
-                "title": "IARVR 07 - Gameplay Video - TUDa 25/26",
+                "title": "IVAR 07 - Gameplay Video - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-video/",
                 "type": "post"
             },{
                 "id": "53e02ae62bb743fe63155441ff7cc8d1",
-                "title": "IARVR 08 - AI Usage - TUDa 25/26",
+                "title": "IVAR 08 - AI Usage - TUDa 25/26",
                 "permalink": "https://kalaylienes.github.io/en/post/iarvr-ai-usage/",
                 "type": "post"
             },
                         {
-                            "id": "categories-iarvr2526",
-                            "title": "IARVR25/26",
+                            "id": "categories-ivar2526",
+                            "title": "IVAR25/26",
                             "permalink": "https://kalaylienes.github.io/categories/iarvr25/26/",
                             "type": "categories"
                         },
                         {
-                            "id": "series-iarvr-final-report",
-                            "title": "IARVR Final Report",
+                            "id": "series-ivar-final-report",
+                            "title": "IVAR Final Report",
                             "permalink": "https://kalaylienes.github.io/series/iarvr-final-report/",
                             "type": "series"
                         },
@@ -102,8 +102,8 @@
                             "type": "tags"
                         },
                         {
-                            "id": "tags-iarvr",
-                            "title": "Iarvr",
+                            "id": "tags-ivar",
+                            "title": "IVAR",
                             "permalink": "https://kalaylienes.github.io/tags/iarvr/",
                             "type": "tags"
                         },
@@ -184,15 +184,15 @@
             
                     {
                         "source": "93ccbe90738ba33679ccaa5ed662708e",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "93ccbe90738ba33679ccaa5ed662708e",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "93ccbe90738ba33679ccaa5ed662708e",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "93ccbe90738ba33679ccaa5ed662708e",
@@ -217,15 +217,15 @@
             
                     {
                         "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
@@ -254,15 +254,15 @@
             
                     {
                         "source": "11f133f6439ab0c5501d153629281c47",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "11f133f6439ab0c5501d153629281c47",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "11f133f6439ab0c5501d153629281c47",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "11f133f6439ab0c5501d153629281c47",
@@ -291,15 +291,15 @@
             
                     {
                         "source": "7cadc394e486e62938f407558b893988",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "7cadc394e486e62938f407558b893988",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "7cadc394e486e62938f407558b893988",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "7cadc394e486e62938f407558b893988",
@@ -332,15 +332,15 @@
             
                     {
                         "source": "c5878d6dbeb3fa064aa336be7337c0c5",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "c5878d6dbeb3fa064aa336be7337c0c5",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "c5878d6dbeb3fa064aa336be7337c0c5",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "c5878d6dbeb3fa064aa336be7337c0c5",
@@ -369,15 +369,15 @@
             
                     {
                         "source": "2ad5dff88b14edb8525e45bb07c0cb19",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "2ad5dff88b14edb8525e45bb07c0cb19",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "2ad5dff88b14edb8525e45bb07c0cb19",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "2ad5dff88b14edb8525e45bb07c0cb19",
@@ -406,15 +406,15 @@
             
                     {
                         "source": "fcb8cb6791e884d2b7222227b0bb78ea",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "fcb8cb6791e884d2b7222227b0bb78ea",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "fcb8cb6791e884d2b7222227b0bb78ea",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "fcb8cb6791e884d2b7222227b0bb78ea",
@@ -443,15 +443,15 @@
             
                     {
                         "source": "53e02ae62bb743fe63155441ff7cc8d1",
-                        "target": "categories-iarvr2526",
+                        "target": "categories-ivar2526",
                     },
                     {
                         "source": "53e02ae62bb743fe63155441ff7cc8d1",
-                        "target": "series-iarvr-final-report",
+                        "target": "series-ivar-final-report",
                     },
                     {
                         "source": "53e02ae62bb743fe63155441ff7cc8d1",
-                        "target": "tags-iarvr",
+                        "target": "tags-ivar",
                     },
                     {
                         "source": "53e02ae62bb743fe63155441ff7cc8d1",

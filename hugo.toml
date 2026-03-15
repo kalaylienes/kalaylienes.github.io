@@ -105,8 +105,8 @@ enableRobotsTXT = true
 
 ## Site parameters
 [params]
-    title = "IARVR25/26"
-    description = "IARVR25/26 course blog"
+    title = "IVAR25/26"
+    description = "IVAR25/26 course blog"
     copyright = "© 2026 kalaylienes"
     ## Hide "powered by hugo" on colophon
     # HideHugoCredit = true

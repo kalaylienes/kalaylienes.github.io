@@ -1,10 +1,10 @@
 +++
-title = "IARVR 04 - Implementation Details - TUDa 25/26"
+title = "IVAR 04 - Implementation Details - TUDa 25/26"
 date = "2026-03-15"
 type = "post"
 draft = false
 author = ["kalaylienes"]
-description = "Implementation details for the indirect horse locomotion and hook-based interaction systems in the IARVR project."
+description = "Implementation details for the indirect horse locomotion and hook-based interaction systems in the IVAR project."
 categories = ["IARVR25/26"]
 tags = ["iarvr", "arvr", "vr", "implementation", "locomotion", "interaction", "unity", "physics"]
 series = ["IARVR Final Report"]

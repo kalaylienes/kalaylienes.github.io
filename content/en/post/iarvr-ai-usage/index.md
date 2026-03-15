@@ -1,10 +1,10 @@
 +++
-title = "IARVR 08 - AI Usage - TUDa 25/26"
+title = "IVAR 08 - AI Usage - TUDa 25/26"
 date = "2026-03-15"
 type = "post"
 draft = false
 author = ["kalaylienes"]
-description = "Reflection on how AI tools were used during the development of the IARVR project."
+description = "Reflection on how AI tools were used during the development of the IVAR project."
 categories = ["IARVR25/26"]
 tags = ["iarvr", "arvr", "vr", "ai", "chatgpt", "development", "reflection"]
 series = ["IARVR Final Report"]
@@ -32,4 +32,4 @@ Based on this experience, AI proved to be particularly effective as a tool for a
 
 Nevertheless, using AI provided a substantial productivity benefit and helped accelerate parts of the development process.
 
-For reference, the full Unity project is published here: [Carrot-on-a-stick_IARVR2526](https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526).
+For reference, the full Unity project is published here: [Carrot-on-a-stick_IVAR2526](https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526).

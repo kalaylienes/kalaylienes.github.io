@@ -1,5 +1,5 @@
 +++
-title = "IARVR 01 - Introduction & Motivation - TUDa 25/26"
+title = "IVAR 01 - Introduction & Motivation - TUDa 25/26"
 date = "2026-03-14"
 type = "post"
 draft = false
@@ -32,7 +32,7 @@ The second part of the project focuses on object interaction. Instead of using t
 
 Overall, the project combines a physics-based locomotion mechanic with a simple but unconventional object interaction system.
 
-The Unity project repository is available here: [Carrot-on-a-stick_IARVR2526](https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526).
+The Unity project repository is available here: [Carrot-on-a-stick_IVAR2526](https://github.com/kalaylienes/Carrot-on-a-stick_IARVR2526).
 
 ## Design Motivation
 
@@ -55,5 +55,5 @@ During development, several adjustments were made to stabilize the system and ma
 The slide deck prepared for the presentation can be reviewed below for a compact project overview.
 
 <div class="project-embed">
-  <iframe src="https://gamma.app/embed/guy67s2ni7f50pv" allow="fullscreen" title="IARVR 2025/26"></iframe>
+  <iframe src="https://gamma.app/embed/guy67s2ni7f50pv" allow="fullscreen" title="IVAR 2025/26"></iframe>
 </div>
