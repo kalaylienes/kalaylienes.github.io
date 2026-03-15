@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/hugo_blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=hugo_blog/livereload" data-no-instant defer></script>
+    <!-- head.html --><!-- meta.html -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IARVR 04 - Implementation Details - TUDa 25/26 | NS - blog</title>
+<meta name="author" content="Kalaylienes">
+<meta name="description" content="Implementation details for the indirect horse locomotion and hook-based interaction systems in the IARVR project." >
+<meta name="keywords" content="iarvr,arvr,vr,implementation,locomotion,interaction,unity,physics">
+<link rel="canonical" href="http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/">
+
+
+
+    
+    <!-- twitterCard -->
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IARVR 04 - Implementation Details - TUDa 25/26 | NS - blog" />
+    <meta name="twitter:description" content="Implementation details for the indirect horse locomotion and hook-based interaction systems in the IARVR project." />
+        <meta name="twitter:image" content="https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b" />
+    
+    <!-- openGraph -->
+    <meta property="og:title" content="IARVR 04 - Implementation Details - TUDa 25/26 | NS - blog" />
+    <meta property="og:description" content="Implementation details for the indirect horse locomotion and hook-based interaction systems in the IARVR project." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" />
+        <meta property="og:image" content="https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b" />
+    <meta property="og:site_name" content="NS - blog" />
+    <!-- js.html -->
+            <script src="http://localhost:1313/hugo_blog/hugo-brewm.min.js" defer></script><!-- css.html -->
+            <link rel="stylesheet" href="http://localhost:1313/hugo_blog/hugo-brewm.min.css">
+
+
+
+    
+    <!-- css/inline.html -->
+    <style>
+         
+        body {max-width: 786px; margin: auto; padding: 2rem;}
+        img {max-width: 86vw;}
+    </style>
+    
+    
+    
+</head>
+<body>
+    <!-- header.html -->
+<header class="pagewidth">
+    <div id="background-header" class="background" aria-hidden="true"></div>
+    
+    <nav aria-label="Bypass">
+        <a id="to-content" href="#content" aria-label="Skip to Main Content">
+            <span>Skip to Main Content</span>
+            <kbd class="key" aria-hidden="true" data-key="c"></kbd>
+            <span class="screening" aria-hidden="true"></span>
+        </a>
+    </nav>
+    
+    <!-- logo.html -->
+    <div id="logo">
+        <a href="http://localhost:1313/hugo_blog/" aria-label="NS - blog" aria-description="Homepage"><svg id="logotype" xmlns="http://www.w3.org/2000/svg" version="1.1" width="252pt" aria-label="NS - blog">
+                        <text id="logotype__text" y="19.5pt" x="0">NS - blog</text>
+                    </svg>
+        </a>
+        <hr class="hide"/>
+    </div>
+    
+    <details class="presentation" id="top-nav">
+        <summary class="on-deck">
+            <span class="t">Navigation</span>
+            <span class="menu-icon" role="presentation"></span>
+        </summary>
+        <nav tabindex="-1" aria-label="Top">
+            <!-- menu.html -->
+            <!-- search.html -->
+<details id="has-search" class="presentation js-details" name="on-deck">
+    <summary class="on-deck srm" accesskey="q" aria-labelledby="search-label" aria-keyshortcuts="q">
+        <span id="search-label" class="t srt">Search</span>
+    </summary>
+    
+        <!-- pagefind.html -->
+    <div id="search" class="on-hull">
+        <div role="presentation" class="screening js-cgpn"></div>
+    </div>
+    <script src="http://localhost:1313/hugo_blog/pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <script>
+        let pageFindInitialized = false;
+        const initPageFind = function(event) {
+            if (!pageFindInitialized) {
+                new PagefindUI({
+                    element: "#search",
+                    showImages: false,
+                    translations: {
+                        placeholder: "Search"
+                    }
+                });
+                
+                const pFInput = document.querySelector('.pagefind-ui__search-input');
+                if (pFInput) {
+                    pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
+                    pFInput.setAttribute('name', pFInput.getAttribute('placeholder'));
+                }
+                pageFindInitialized = true;
+                document.removeEventListener('DOMContentLoaded', initPageFind);
+            }
+        };
+        document.addEventListener('DOMContentLoaded', initPageFind);
+    </script>
+        <noscript id="has-search-fallback" class="on-hull">
+                
+    <!-- duckduckgo.html -->
+    <form id="duckduckgo" class="form on-plank"
+        name="[i18n] seach" action="//duckduckgo.com/"
+        role="search" aria-label="Search">
+        <input type="hidden" value="localhost:1313" name="sites"></input>
+        <input type="hidden" value="1" name="kh"></input>
+        <input type="hidden" value="1" name="kn"></input>
+        <input type="hidden" value="1" name="kac"></input>
+        <input class="ldots form__input" type="search" placeholder="Search" name="q" role="searchbox"></input>
+        <button class="form__button" type="submit" aria-label="Search">
+            <img src="https://duckduckgo.com/assets/logo_header.v109.svg" alt="Search" role="presentation" aria-hidden="true">
+        </button>
+    </form>
+    <div role="presentation" class="screening js-cgpn"></div>
+        </noscript>
+    
+</details>
+
+            <!-- menu.html -->
+            <!-- i18n.html -->
+
+        </nav>
+        <div id="top-nav-screen" class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+        <hr class="hide"/>
+    </details>
+</header>
+    
+    <!-- [main] baseof.html -->
+    <main id="page"class="post"
+        >
+        <!-- main/header.html -->
+        <header class="pagewidth">
+                    <menu id="menu" class="srm"
+                        data-i18n-back="Go Back"
+                        data-i18n-print="Print"
+                        data-i18n-copy="Copy URL"
+                        data-i18n-copying="Copying...">
+                                <li>
+                                    <a id="navigatorShare" href="#mastodon" role="button" aria-label="Share">
+                                        <span class="t srt" role="tooltip">Share</span>
+                                    </a>
+                                </li>
+                    </menu>
+            <!-- nav.html -->
+<details class="presentation" aria-expanded="true" id="has-breadcrumb" open>
+    <summary id="breadcrumb" tabindex="-1">
+        <span>Breadcrumb</span>
+    </summary>
+        <nav aria-labelledby="breadcrumb">
+            <ul role="presentation" class="breadcrumb ">
+                    <!-- breadcrumb.html -->
+        <li>
+            <a href="http://localhost:1313/hugo_blog/en/" aria-current="true">
+            </a>
+        </li>
+        <li>
+            <a href="http://localhost:1313/hugo_blog/en/post/" aria-current="true">Post
+            </a>
+        </li>
+    <li>
+        <a href="" aria-current="page" tabindex="-1">IARVR 04 - Implementation Details - TUDa 25/26
+        </a>
+    </li>
+            </ul>
+        </nav>
+</details>
+            <hr class="hide"/>
+        </header>
+        <div id="top" role="presentation">
+            
+        </div>
+        
+        <div id="has-stage" class="section-title pagewidth">
+                    <a href="http://localhost:1313/hugo_blog/series/iarvr-final-report/" id="series" aria-label="Series: IARVR Final Report">
+                        <span>IARVR Final Report</span>
+                    </a>
+                        <span class="st budding"></span>
+                    <a href="http://localhost:1313/hugo_blog/stage/budding/" id="stage" aria-label="Stage: Budding">
+                        <span>Budding</span>
+                    </a>
+        </div>
+    <article id="main-article" class="pagewidth rm"
+        role="document" aria-labelledby="title"
+            data-pagefind-body>
+        <header aria-labelledby="title">
+            <!-- title.html -->
+        <h1 id="title"
+                data-pagefind-meta="title"
+            data-bionRead-safe
+            >IARVR 04 - Implementation Details - TUDa 25/26</h1>
+            <div id="doc-author" class="textsw">
+                            
+                                <a class="author" href="http://localhost:1313/hugo_blog/author/kalaylienes/" aria-label="Kalaylienes">Kalaylienes
+                                </a>
+            </div>
+            <!-- timestamp.html-->
+        <time datetime="2026-03-15T00:00:00&#43;00:00">March 15, 2026</time>
+        </header>
+        <!-- audio.html -->
+        <section id="content" class="content " aria-labelledby="title" data-bionRead-safe>
+                <h2 id="mounting-the-player-on-the-horse">Mounting the Player on the Horse</h2>
+<p>One of the first technical challenges was attaching the VR player rig to the horse model in a stable way. The initial idea was to directly parent the VR rig to the horse object so that the player would move together with the horse.</p>
+<p>However, the horse asset was part of a prefab hierarchy, and modifying the structure directly caused repeated issues in Unity. In several cases the rig position behaved unpredictably once animations were enabled.</p>
+<p>To avoid modifying the prefab structure, a simpler workaround was implemented. A new child object called <code>MountPoint</code> was added to the horse model. The VR rig then followed this point instead of being directly attached to the animated object. This provided a stable reference position for the player and avoided conflicts with the horse animation system.</p>
+<p>This approach proved to be much more reliable during gameplay.</p>
+<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Unity hierarchy screenshot showing the horse object, the MountPoint child, and the VR rig alignment.">
+      <strong>Placeholder image</strong>
+      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-01-horse-mountpoint-hierarchy.png</code>
+    </div><figcaption>The VR rig follows a MountPoint attached to the horse to avoid conflicts with the animation system. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-01-horse-mountpoint-hierarchy.png</span></figcaption></figure>
+
+<style>
+  .project-figure {
+    margin: 2rem 0;
+  }
+
+  .project-figure img,
+  .project-figure__placeholder {
+    display: block;
+    border: 1px solid var(--g18s, #444);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--bg) 88%, var(--fg) 12%);
+    width: min(100%, 56rem);
+    overflow: hidden;
+  }
+
+  .project-figure__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+    min-height: 16rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .project-figure__placeholder code,
+  .project-figure__filename {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.75rem;
+  }
+</style>
+
+<h2 id="carrot-and-rope-system">Carrot and Rope System</h2>
+<p>The carrot used to guide the horse is attached to a fishing rod held in the player&rsquo;s right hand. To visually represent the connection between the rod and the carrot, a rope-like element is rendered between two attachment points.</p>
+<p>One attachment point is placed at the tip of the rod, while the second one is located on the carrot object. A line renderer is used to visually connect these two points, creating the impression of a rope.</p>
+<p>Because the carrot also influences the locomotion system, its movement had to remain readable and somewhat stable. Additional adjustments were therefore introduced to limit excessive swinging and make the system easier to control.</p>
+<p>These changes were primarily intended to improve gameplay stability rather than to simulate a physically accurate rope system.</p>
+<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Unity screenshot showing the rod tip, carrot attachment, and line renderer rope between them.">
+      <strong>Placeholder image</strong>
+      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-02-rod-tip-carrot-rope.png</code>
+    </div><figcaption>A line renderer visually connects the rod and the carrot. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-02-rod-tip-carrot-rope.png</span></figcaption></figure>
+
+<style>
+  .project-figure {
+    margin: 2rem 0;
+  }
+
+  .project-figure img,
+  .project-figure__placeholder {
+    display: block;
+    border: 1px solid var(--g18s, #444);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--bg) 88%, var(--fg) 12%);
+    width: min(100%, 56rem);
+    overflow: hidden;
+  }
+
+  .project-figure__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+    min-height: 16rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .project-figure__placeholder code,
+  .project-figure__filename {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.75rem;
+  }
+</style>
+
+<h2 id="jump-detection-implementation">Jump Detection Implementation</h2>
+<p>The jumping mechanic was implemented by detecting a downward swing motion of the left controller. The system calculates the movement velocity of the controller and triggers a jump when the downward velocity exceeds a certain threshold.</p>
+<p>While this method worked well in controlled tests, it initially produced unintended jumps when the player interacted with large environmental colliders. Objects such as checkpoints or ground transitions could cause short spikes in controller velocity.</p>
+<p>To reduce these unwanted triggers, several checkpoint colliders were converted into trigger volumes so they would no longer influence the physics interactions of the player rig.</p>
+<p>For the demo version of the project, the jumping mechanic was also restricted to the final straight section of the parkour course. This ensured that the locomotion system remained stable during the main traversal sections.</p>
+<h2 id="hook-interaction-system">Hook Interaction System</h2>
+<p>The object interaction phase introduces a hook system that allows the player to manipulate a T-shaped object indirectly.</p>
+<p>Instead of grabbing the object directly with the VR controller, the player approaches the object with the hook attached to the rod. When the hook touches the object and the trigger is pressed, the system creates a connection between the hook and the object using physics components.</p>
+<p>The object can then be lifted and moved through the rope system.</p>
+<p>This approach allows the object to react to physics while still remaining controllable during the interaction task.</p>
+<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Gameplay or Unity screenshot showing the hook attaching to the T-shaped object.">
+      <strong>Placeholder image</strong>
+      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-03-hook-attaching-object.png</code>
+    </div><figcaption>The hook connects to the object through a physics-based attachment. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-03-hook-attaching-object.png</span></figcaption></figure>
+
+<style>
+  .project-figure {
+    margin: 2rem 0;
+  }
+
+  .project-figure img,
+  .project-figure__placeholder {
+    display: block;
+    border: 1px solid var(--g18s, #444);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--bg) 88%, var(--fg) 12%);
+    width: min(100%, 56rem);
+    overflow: hidden;
+  }
+
+  .project-figure__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+    min-height: 16rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .project-figure__placeholder code,
+  .project-figure__filename {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.75rem;
+  }
+</style>
+
+<h2 id="object-rotation-through-shooting">Object Rotation Through Shooting</h2>
+<p>To adjust the orientation of the T-shaped object, a shooting mechanic was introduced using the revolver.</p>
+<p>When the player fires the revolver, a raycast is emitted from the weapon. If the ray hits the interaction object, the system determines which side of the object was hit. Based on this information, the object rotates by a small predefined angle.</p>
+<p>This step-based rotation method provides a simple way for the player to gradually align the object with the target silhouette.</p>
+<figure class="project-figure"><div class="project-figure__placeholder" role="img" aria-label="Screenshot showing the revolver aiming at the interaction object to rotate it step by step.">
+      <strong>Placeholder image</strong>
+      <code>assets/project-media/iarvr/implementation-details/iarvr-implementation-04-revolver-shooting-object.png</code>
+    </div><figcaption>The revolver uses raycasting to rotate the interaction object step by step. <span class="project-figure__filename">File: iarvr/implementation-details/iarvr-implementation-04-revolver-shooting-object.png</span></figcaption></figure>
+
+<style>
+  .project-figure {
+    margin: 2rem 0;
+  }
+
+  .project-figure img,
+  .project-figure__placeholder {
+    display: block;
+    border: 1px solid var(--g18s, #444);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--bg) 88%, var(--fg) 12%);
+    width: min(100%, 56rem);
+    overflow: hidden;
+  }
+
+  .project-figure__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+    min-height: 16rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .project-figure__placeholder code,
+  .project-figure__filename {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.75rem;
+  }
+</style>
+
+<h2 id="stabilizing-the-object-after-release">Stabilizing the Object After Release</h2>
+<p>Another challenge appeared when releasing the object from the hook. If the object remained fully controlled by physics, it could immediately fall or rotate unpredictably.</p>
+<p>To solve this problem, the object&rsquo;s physics behavior is adjusted once it is released. The rigidbody velocities are reset and gravity can be disabled so that the object remains in the position where it was placed.</p>
+<p>This allows the player to carefully position the object without it drifting away after being released.</p>
+
+        </section>
+            
+    <footer>
+    <nav id="keywords" aria-label="Tags">
+        <span>Tags:&nbsp;</span>
+        
+        <!-- terms.html -->
+            <ul class="delimiter" role="presentation">
+                    <li><a href="http://localhost:1313/hugo_blog/tags/iarvr/" >Iarvr</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/arvr/" >Arvr</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/vr/" >Vr</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/implementation/" >Implementation</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/locomotion/" >Locomotion</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/interaction/" >Interaction</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/unity/" >Unity</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/tags/physics/" >Physics</a></li>
+            </ul>
+    </nav>
+    </footer>
+    </article>
+        <div id="exclude" role="presentation">
+            <!-- excluded last block frome some RSS reader and browser reader mode -->
+            
+    <div class="pagewidth">
+        <hr />
+        <div id="contentinfo" role="contentinfo" data-pagefind-ignore="all">
+                    <!-- related.html -->
+    <nav id="related" aria-label="You might also like"><strong class="section-title">Series: IARVR Final Report</strong>
+                <ol>
+                    <li><a href="http://localhost:1313/hugo_blog/en/post/iarvr-introduction-motivation/">IARVR 01 - Introduction &amp; Motivation - TUDa 25/26</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/en/post/iarvr-problem-statement/">IARVR 02 - Problem Statement - TUDa 25/26</a></li>
+                    <li><a href="http://localhost:1313/hugo_blog/en/post/iarvr-solution-overview/">IARVR 03 - Solution Overview - TUDa 25/26</a></li>
+                    
+                    <li><a href="http://localhost:1313/hugo_blog/en/post/iarvr-evaluation/">IARVR 05 - Evaluation - TUDa 25/26</a></li>
+                    <li class="see-more"><a href="http://localhost:1313/hugo_blog/series/iarvr-final-report/">See all: IARVR Final Report</a></li>
+                </ol>
+    </nav>
+                    <!-- history.html -->
+                
+                <!-- nav.html -->
+<details class="presentation" aria-expanded="true" id="has-share" open>
+    <summary id="share" tabindex="-1">
+        <span>Share</span>
+    </summary>
+        <nav aria-labelledby="share">
+            <ul role="presentation" class="share srm">
+                    <li>
+  <button
+    type="button"
+    class="share-copy-link"
+    onclick="if (navigator.clipboard) { navigator.clipboard.writeText(window.location.href); }"
+    aria-label="Copy URL link">
+    <i class="share-copy-icon sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Copy URL link</span>
+  </button>
+</li>
+<li>
+  <a href="https://api.whatsapp.com/send?text=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025%2f26%20http%3a%2f%2flocalhost%3a1313%2fhugo_blog%2fen%2fpost%2fiarvr-implementation-details%2f" role="button" aria-label="Share on Whatsapp">
+    <i class="whatsapp sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Whatsapp</span>
+  </a>
+</li>
+<li>
+  <a rel="noopener noreferrer" target="_blank" href="https://telegram.me/share/url?text=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025/26&amp;url=http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" role="button"
+    aria-label="Share on Telegram in new tab">
+    <i class="telegram sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Telegram</span>
+  </a>
+</li>
+<li>
+  <a href="mailto:?subject=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025%2f26&body=http%3a%2f%2flocalhost%3a1313%2fhugo_blog%2fen%2fpost%2fiarvr-implementation-details%2f" role="button" aria-label="Share on Email">
+    <i class="email sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Email</span>
+  </a>
+</li>
+<li>
+  <a rel="noopener noreferrer" target="_blank" href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" role="button"
+    aria-label="Share on Facebook in new tab">
+    <i class="facebook sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Facebook</span>
+  </a>
+</li>
+<li>
+  <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/intent/tweet/?text=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025/26&amp;url=http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" role="button"
+    aria-label="Share on Twitter in new tab">
+    <i class="twitter sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Twitter</span>
+  </a>
+</li>
+<li>
+  <a rel="noopener noreferrer" target="_blank" href="https://threads.net/intent/post?text=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025/26&amp;url=http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" role="button"
+    aria-label="Share on Threads in new tab">
+    <i class="threads sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Threads</span>
+  </a>
+</li>
+<li>
+  <a rel="noopener noreferrer" target="_blank" href="https://bsky.app/intent/compose?text=IARVR%2004%20-%20Implementation%20Details%20-%20TUDa%2025/26&amp;url=http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/" role="button"
+    aria-label="Share on Bluesky in new tab">
+    <i class="bluesky sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">Share on Bluesky</span>
+  </a>
+</li>
+
+            </ul>
+        </nav>
+</details>
+        </div>
+        
+            
+    </div>
+        <!-- main/footer.html --><hr class="hide">
+    <footer id="main-footer">
+            <div class=" pagewidth" style="--multicols: 2"><div id="main-footer-primary">
+                        <p><strong>Impressum</strong></p>
+<br>
+<p>This website is a <strong>non-commercial personal blog</strong> operated by <strong>kalaylienes</strong>. It exists to share personal experiences, learning notes, and project documentation.</p>
+<p><strong>Cookies &amp; tracking:</strong> This site does not intentionally use tracking cookies, advertising networks, or third-party analytics. The hosting provider (GitHub Pages) may process basic technical logs (e.g., IP address, user agent, timestamps) for security and operational purposes.</p>
+<p><strong>Content &amp; liability:</strong> All content is created with care, but no guarantee is provided regarding completeness, accuracy, or timeliness. Use of the information on this website is at your own risk. Liability is excluded to the extent permitted by applicable law.</p>
+<p><strong>External links:</strong> This website may contain links to external sites. I have no control over their content and do not assume responsibility for it. The respective operators are responsible for their content.</p>
+<p><strong>Contact:</strong> For inquiries regarding this website, please use the Email link in the footer.</p>
+<fieldset id=cookie-banner>
+<legend>Cookie Banner</legend>
+<div>
+<span>We do not collect cookie</span>
+<img id="no-cookie" alt="No Cookie for Cookie Monster" />
+</div>
+</fieldset>
+
+
+                        <!-- menu.html -->
+    <nav id="menu-footer" class="has-aria-label-top" aria-label="Let&#39;s keep in touch!">
+        <ul role="presentation">
+            <li><a href="https://github.com/kalaylienes" aria-label="GitHub">
+                    <i class="icon">github</i>
+                    <span class="t" role="tooltip">GitHub</span>
+                </a>
+            </li>
+            <li><a href="mailto:kalaylienes@gmail.com" aria-label="Email">
+                    <i class="icon">email</i>
+                    <span class="t" role="tooltip">Email</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+                    </div>
+
+                
+            </div><div id="unified-footer"><p id="license">© 2026 kalaylienes</p><p id="coffee-counter">Made with ❤️ and 10 Cups of coffee, if not more.</p></div></footer>
+
+    <style>
+       
+      #main-footer {
+        width: min(100%, calc(100% - 2rem));
+        max-width: 1600px;
+        margin: 1in auto 1em;
+      }
+
+      #main-footer > .pagewidth {
+        padding-inline: clamp(1rem, 3vw, 2.5rem);
+      }
+
+      #main-footer-primary,
+      #main-footer-primary > p,
+      #main-footer-primary > div,
+      #main-footer-primary > br {
+        max-width: none;
+        width: 100%;
+      }
+
+      #main-footer-primary p,
+      #main-footer-primary li,
+      #main-footer-primary fieldset,
+      #main-footer-primary legend,
+      #main-footer-primary span {
+        max-width: none;
+      }
+
+      #cookie-banner {
+        display: block;
+        margin: 1.5rem auto 0 0;
+        width: min(30%, 22rem);
+        min-width: 14rem;
+        max-width: 22rem;
+        padding: 0.75rem 1rem 1rem;
+      }
+
+      #cookie-banner > div {
+        gap: 0.75rem;
+      }
+
+      #cookie-banner span {
+        display: block;
+      }
+
+      #menu-footer.has-aria-label-top::before {
+        display: none !important;
+        content: none !important;
+      }
+
+       
+      #menu-footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      #menu-footer ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      @media (max-width: 640px) {
+        #main-footer {
+          width: calc(100% - 1rem);
+          margin-top: 2rem;
+        }
+
+        #main-footer > .pagewidth {
+          padding-inline: 1rem;
+        }
+
+        #menu-footer,
+        #menu-footer ul {
+          justify-content: center;
+          text-align: center;
+        }
+
+        #cookie-banner {
+          margin-left: 0;
+          margin-right: auto;
+          width: min(100%, 20rem);
+        }
+      }
+    </style>
+        </div>
+    </main>
+    <!-- footer.html -->
+<footer id="body-footer" class="pagewidth">
+    <div id="background-footer" class="background hide" role="presentation" aria-hidden="true"></div>
+    <div id="focusMode"></div>
+    <!-- a11y.html --><details id="has-a11y" class="presentation js-details hide" name="on-deck" aria-haspopup="true" aria-labelledby="has-a11y-summary"
+    data-i18n-accessibility="Accessibility"
+    data-i18n-optimizeSR="Screen Reader Optimization"
+    data-i18n-optimizeSRdesc="Optimize display and resources for screen reader users who navigate with a pointer device."
+    data-i18n-colorSettings="Color Settings"
+    data-i18n-darkMode="Dark Mode"
+    data-i18n-light="Light"
+    data-i18n-dark="Dark"
+    data-i18n-contrast="Contrast"
+    data-i18n-lessContrast="Low"
+    data-i18n-moreContrast="High"
+    data-i18n-defaultContrast="Default"
+    data-i18n-colorPalette="Color Palette"
+    data-i18n-defaultColor="Default"
+    data-i18n-deuteranopia="Deuteranopia"
+    data-i18n-protanopia="Protanopia"
+    data-i18n-tritanopia="Tritanopia"
+    data-i18n-monochrome="Monochrome"
+    data-i18n-fontSize="Font Size"
+    data-i18n-baselineStretch="Baseline Stretch"
+    data-i18n-OpenDyslexic="Use OpenDyslexic Font"
+    data-i18n-menuControls="Accessibility Menu Controls"
+    data-i18n-save="Save"
+    data-i18n-reset="Reset"
+    data-i18n-close="Close"
+    data-i18n-bionRead="BionRead Mode"
+    data-i18n-focusMode="Focus Mode"
+    data-i18n-noLocalStorage="LocalStorage is not available in your browser. Settings won&#39;t be saved.">
+</details>
+
+
+    <div id="useBionRead" class="sri"></div>
+    <!-- [top] bypass block -->
+    <nav aria-label="Bypass">
+        <a id="to-top" class="srm" href="#top" title="To Content Top" accesskey="c" aria-keyshortcuts="c" aria-label="To Content Top">
+            <span class="t srt">To Content Top</span>
+            <kbd class="key" aria-hidden="true" data-key="c"></kbd>
+        </a>
+    </nav>
+</footer>
+    
+    <!-- [post] single.html -->
+    <div id="bionReadSnapshot" hidden></div>
+    <!-- [background] baseof.html -->
+    <div id="background-body" role="presentation" aria-hidden="true"></div>
+</body>
+</html>

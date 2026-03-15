@@ -1,0 +1,59 @@
+{{- $page := .page -}}
+{{- $shareAttr := `rel="noopener noreferrer" target="_blank"` | safeHTMLAttr -}}
+<li>
+  <button
+    type="button"
+    class="share-copy-link"
+    onclick="if (navigator.clipboard) { navigator.clipboard.writeText(window.location.href); }"
+    aria-label="{{ i18n "copy" }} link">
+    <i class="share-copy-icon sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "copy" }} link</span>
+  </button>
+</li>
+<li>
+  <a href="https://api.whatsapp.com/send?text={{ $page.Title | htmlEscape }}%20{{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} Whatsapp">
+    <i class="whatsapp sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Whatsapp</span>
+  </a>
+</li>
+<li>
+  <a {{ $shareAttr }} href="{{ printf "https://telegram.me/share/url?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink }}" role="button"
+    aria-label="{{ i18n "shareOn" }} Telegram {{ i18n "inNewTab" }}">
+    <i class="telegram sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Telegram</span>
+  </a>
+</li>
+<li>
+  <a href="mailto:?subject={{ $page.Title | htmlEscape }}&body={{ $page.Permalink }}" role="button" aria-label="{{ i18n "shareOn" }} {{ i18n "email" }}">
+    <i class="email sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} {{ i18n "email" }}</span>
+  </a>
+</li>
+<li>
+  <a {{ $shareAttr }} href="{{ printf "https://facebook.com/sharer/sharer.php?u=%s" $page.Permalink }}" role="button"
+    aria-label="{{ i18n "shareOn" }} Facebook {{ i18n "inNewTab" }}">
+    <i class="facebook sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Facebook</span>
+  </a>
+</li>
+<li>
+  <a {{ $shareAttr }} href="{{ printf "https://twitter.com/intent/tweet/?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink }}" role="button"
+    aria-label="{{ i18n "shareOn" }} Twitter {{ i18n "inNewTab" }}">
+    <i class="twitter sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Twitter</span>
+  </a>
+</li>
+<li>
+  <a {{ $shareAttr }} href="{{ printf "https://threads.net/intent/post?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink }}" role="button"
+    aria-label="{{ i18n "shareOn" }} Threads {{ i18n "inNewTab" }}">
+    <i class="threads sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Threads</span>
+  </a>
+</li>
+<li>
+  <a {{ $shareAttr }} href="{{ printf "https://bsky.app/intent/compose?text=%s&url=%s" ($page.Title | htmlEscape) $page.Permalink }}" role="button"
+    aria-label="{{ i18n "shareOn" }} Bluesky {{ i18n "inNewTab" }}">
+    <i class="bluesky sri" aria-hidden="true"></i>
+    <span class="t srt" role="tooltip">{{ i18n "shareOn" }} Bluesky</span>
+  </a>
+</li>

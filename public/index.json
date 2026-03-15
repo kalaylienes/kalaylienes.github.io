@@ -1,1 +1,481 @@
-[{"content":"","permalink":"http://localhost:1313/hugo_blog/posts/ilk-yazi/","summary":"","title":"Ilk Yazi"}]
+
+{
+    "nodes": [{
+                "id": "93ccbe90738ba33679ccaa5ed662708e",
+                "title": "IARVR 01 - Introduction & Motivation - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-introduction-motivation/",
+                "type": "post"
+            },{
+                "id": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                "title": "IARVR 02 - Problem Statement - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-problem-statement/",
+                "type": "post"
+            },{
+                "id": "11f133f6439ab0c5501d153629281c47",
+                "title": "IARVR 03 - Solution Overview - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-solution-overview/",
+                "type": "post"
+            },{
+                "id": "7cadc394e486e62938f407558b893988",
+                "title": "IARVR 04 - Implementation Details - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/",
+                "type": "post"
+            },{
+                "id": "c5878d6dbeb3fa064aa336be7337c0c5",
+                "title": "IARVR 05 - Evaluation - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-evaluation/",
+                "type": "post"
+            },{
+                "id": "2ad5dff88b14edb8525e45bb07c0cb19",
+                "title": "IARVR 06 - Conclusion - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-conclusion/",
+                "type": "post"
+            },{
+                "id": "fcb8cb6791e884d2b7222227b0bb78ea",
+                "title": "IARVR 07 - Gameplay Video - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-video/",
+                "type": "post"
+            },{
+                "id": "53e02ae62bb743fe63155441ff7cc8d1",
+                "title": "IARVR 08 - AI Usage - TUDa 25/26",
+                "permalink": "http://localhost:1313/hugo_blog/en/post/iarvr-ai-usage/",
+                "type": "post"
+            },
+                        {
+                            "id": "categories-iarvr2526",
+                            "title": "IARVR25/26",
+                            "permalink": "http://localhost:1313/hugo_blog/categories/iarvr25/26/",
+                            "type": "categories"
+                        },
+                        {
+                            "id": "series-iarvr-final-report",
+                            "title": "IARVR Final Report",
+                            "permalink": "http://localhost:1313/hugo_blog/series/iarvr-final-report/",
+                            "type": "series"
+                        },
+                        {
+                            "id": "tags-ai",
+                            "title": "Ai",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/ai/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-arvr",
+                            "title": "Arvr",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/arvr/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-chatgpt",
+                            "title": "Chatgpt",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/chatgpt/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-conclusion",
+                            "title": "Conclusion",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/conclusion/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-debugging",
+                            "title": "Debugging",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/debugging/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-development",
+                            "title": "Development",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/development/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-evaluation",
+                            "title": "Evaluation",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/evaluation/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-gameplay",
+                            "title": "Gameplay",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/gameplay/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-iarvr",
+                            "title": "Iarvr",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/iarvr/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-implementation",
+                            "title": "Implementation",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/implementation/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-interaction",
+                            "title": "Interaction",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/interaction/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-locomotion",
+                            "title": "Locomotion",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/locomotion/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-motivation",
+                            "title": "Motivation",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/motivation/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-physics",
+                            "title": "Physics",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/physics/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-playtesting",
+                            "title": "Playtesting",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/playtesting/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-reflection",
+                            "title": "Reflection",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/reflection/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-solution",
+                            "title": "Solution",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/solution/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-unity",
+                            "title": "Unity",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/unity/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-video",
+                            "title": "Video",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/video/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-vr",
+                            "title": "Vr",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/vr/",
+                            "type": "tags"
+                        },
+                        {
+                            "id": "tags-wind",
+                            "title": "Wind",
+                            "permalink": "http://localhost:1313/hugo_blog/tags/wind/",
+                            "type": "tags"
+                        },
+    ],
+    "links": [
+            
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-interaction",
+                    },
+                    {
+                        "source": "93ccbe90738ba33679ccaa5ed662708e",
+                        "target": "tags-motivation",
+                    },
+            
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-interaction",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-physics",
+                    },
+                    {
+                        "source": "1f9fa93a4b7a83cdc6a8eca44f6cb12a",
+                        "target": "tags-debugging",
+                    },
+            
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-interaction",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-solution",
+                    },
+                    {
+                        "source": "11f133f6439ab0c5501d153629281c47",
+                        "target": "tags-wind",
+                    },
+            
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-implementation",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-interaction",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-unity",
+                    },
+                    {
+                        "source": "7cadc394e486e62938f407558b893988",
+                        "target": "tags-physics",
+                    },
+            
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-evaluation",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-playtesting",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "c5878d6dbeb3fa064aa336be7337c0c5",
+                        "target": "tags-interaction",
+                    },
+            
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-conclusion",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-interaction",
+                    },
+                    {
+                        "source": "2ad5dff88b14edb8525e45bb07c0cb19",
+                        "target": "tags-reflection",
+                    },
+            
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-video",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-gameplay",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-locomotion",
+                    },
+                    {
+                        "source": "fcb8cb6791e884d2b7222227b0bb78ea",
+                        "target": "tags-interaction",
+                    },
+            
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "categories-iarvr2526",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "series-iarvr-final-report",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-iarvr",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-arvr",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-vr",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-ai",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-chatgpt",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-development",
+                    },
+                    {
+                        "source": "53e02ae62bb743fe63155441ff7cc8d1",
+                        "target": "tags-reflection",
+                    },
+    ],
+}

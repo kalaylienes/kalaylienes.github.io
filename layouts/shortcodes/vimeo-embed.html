@@ -1,0 +1,17 @@
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" | default "Gameplay video" -}}
+{{- $caption := .Get "caption" -}}
+<figure class="project-video">
+  <div class="project-video__frame">
+    <iframe
+      src="https://player.vimeo.com/video/{{ $id }}"
+      title="{{ $title }}"
+      loading="lazy"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {{- if $caption }}
+  <figcaption>{{ $caption }}</figcaption>
+  {{- end }}
+</figure>

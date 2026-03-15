@@ -2,23 +2,232 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/hugo_blog/</loc>
-    <lastmod>2026-03-14T16:28:16+01:00</lastmod>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-introduction-motivation/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     </url>
   <url>
-    <loc>http://localhost:1313/hugo_blog/posts/ilk-yazi/</loc>
-    <lastmod>2026-03-14T16:28:16+01:00</lastmod>
+    <loc>http://localhost:1313/hugo_blog/en/footer/</loc>
+    
     </url>
   <url>
-    <loc>http://localhost:1313/hugo_blog/posts/</loc>
-    <lastmod>2026-03-14T16:28:16+01:00</lastmod>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-problem-statement/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-solution-overview/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-implementation-details/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-evaluation/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-conclusion/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-video/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/iarvr-ai-usage/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/ai/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/arvr/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/author/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/stage/budding/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
     </url>
   <url>
     <loc>http://localhost:1313/hugo_blog/categories/</loc>
-    
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/chatgpt/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/conclusion/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/development/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/evaluation/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/gameplay/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/iarvr/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/series/iarvr-final-report/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/categories/iarvr25/26/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/implementation/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/interaction/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/author/kalaylienes/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/locomotion/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/physics/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/playtesting/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/post/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/reflection/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/series/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/solution/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/stage/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
     </url>
   <url>
     <loc>http://localhost:1313/hugo_blog/tags/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/unity/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/video/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/vr/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/wind/</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/posts/ilk-yazi/</loc>
+    <lastmod>2026-03-14T16:31:47+01:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/posts/</loc>
+    <lastmod>2026-03-14T16:31:47+01:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/debugging/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/tags/motivation/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/id/</loc>
     
     </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/budding/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/budding/_index.id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/budding/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/evergreen/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/evergreen/_index.id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/evergreen/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/evergreen/_index.id/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/evergreen/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/evergreen/_index.id/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/_index.id/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/_index.id/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/budding/_index.id/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/budding/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/budding/_index.id/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/seedling/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/seedling/_index.id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/seedling/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/seedling/_index.id/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/seedling/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/seedling/_index.id/" />
+  </url>
+  <url>
+    <loc>http://localhost:1313/hugo_blog/en/stage/</loc>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/_index.id/" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/hugo_blog/en/stage/" />
+  </url>
 </urlset>

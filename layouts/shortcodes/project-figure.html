@@ -1,0 +1,61 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default $src -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $assetPath := printf "project-media/%s" $src -}}
+{{- $image := resources.Get $assetPath -}}
+<figure class="project-figure">
+  {{- if $image -}}
+    <img
+      src="{{ $image.RelPermalink }}"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+      alt="{{ $alt }}">
+  {{- else -}}
+    <div class="project-figure__placeholder" role="img" aria-label="{{ $alt }}">
+      <strong>Placeholder image</strong>
+      <code>assets/{{ $assetPath }}</code>
+    </div>
+  {{- end -}}
+  {{- if or $caption $src -}}
+    <figcaption>
+      {{- with $caption }}{{ . }}{{ end -}}
+      {{- if and $caption $src }} {{ end -}}
+      {{- with $src }}<span class="project-figure__filename">File: {{ . }}</span>{{ end -}}
+    </figcaption>
+  {{- end -}}
+</figure>
+
+<style>
+  .project-figure {
+    margin: 2rem 0;
+  }
+
+  .project-figure img,
+  .project-figure__placeholder {
+    display: block;
+    border: 1px solid var(--g18s, #444);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--bg) 88%, var(--fg) 12%);
+    width: min(100%, 56rem);
+    overflow: hidden;
+  }
+
+  .project-figure__placeholder {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+    min-height: 16rem;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .project-figure__placeholder code,
+  .project-figure__filename {
+    font-size: 0.95em;
+    opacity: 0.85;
+  }
+
+  .project-figure figcaption {
+    margin-top: 0.75rem;
+  }
+</style>
