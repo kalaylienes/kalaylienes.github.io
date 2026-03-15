@@ -21,5 +21,3 @@ This page contains the gameplay video for the project. It shows the horse-based 
     title="IARVR gameplay video"
     caption="Gameplay video showing the carrot-based horse locomotion and the hook-based interaction task."
 >}}
-
-The video is embedded directly from Vimeo so it can be viewed without leaving the report structure.

@@ -126,6 +126,63 @@ body > header.pagewidth {
   padding-left: 0 !important;
 }
 
+#series-next {
+  margin: 2.25rem 0 1.5rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+}
+
+#series-next .section-title {
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.series-next__grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.series-next__card {
+  display: block;
+  padding: 1rem 1.1rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 24, 40, 0.55);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.series-next__card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(20, 31, 50, 0.72);
+}
+
+.series-next__eyebrow {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.series-next__title {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: inherit;
+}
+
+@media (min-width: 900px) {
+  .series-next__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 #cookie-banner > div {
     display: flex;
     align-items: center;
